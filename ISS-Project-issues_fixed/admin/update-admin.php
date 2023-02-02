@@ -3,7 +3,7 @@
     //check whter the submit button is clicked or not
     if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "post"){
         //get all the values from form to update
-        $id = htmlspecialchars($_POST['id']);
+        $id = mysqli_real_escape_string($conn,htmlspecialchars($_POST['id'])) ;
         $full_name = htmlspecialchars($_POST['full_name']);
         $username = htmlspecialchars($_POST['username']);
 
