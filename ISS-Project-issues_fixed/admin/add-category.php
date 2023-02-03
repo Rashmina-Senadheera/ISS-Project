@@ -95,7 +95,7 @@
                         
                         $source_path = $_FILES['image']['tmp_name'];
 
-                        $destination_path = "../images/category/".$image_name;
+                        $destination_path = "../images/category/".basename($image_name);
 
                         //uploaad the image
                         $upload = move_uploaded_file($source_path,$destination_path);
