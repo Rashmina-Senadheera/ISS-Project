@@ -257,8 +257,8 @@ if (isset($_GET['id'])) {
                 </tr>
                 <tr>
                     <td>
-                        <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
+                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
+                        <input type="hidden" name="current_image" value="<?php echo htmlspecialchars($current_image); ?>">
 
                         <input type="submit" name="submit" value="Update" class="btn-update">
                     </td>
