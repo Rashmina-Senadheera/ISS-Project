@@ -12,11 +12,22 @@ if(isset($_GET['id']) && isset($_GET['image_name'])){
     //check whether the image is available or not and remove the image if available
     if($image_name != ""){
 
-        //get the path of the image
+        $image_name = basename($_GET['image_name']);
         $path = "../images/material/".$image_name;
 
-        //remove image file from the folder
-        $remove = unlink($path);
+        if (!preg_match('/^[a-zA-Z0-9._-]+$/', $image_name) || strpos($image_name, '..') !== false) {
+            die('Invalid image name');
+        }
+        if (file_exists($path)) {
+            $remove = unlink($path);
+          } else {
+            echo "File does not exist";
+          }
+        // //get the path of the image
+        // $path = "../images/material/".$image_name;
+
+        // //remove image file from the folder
+        // $remove = unlink($path);
 
         //check whether the image is removed or not
         if($remove==false){
